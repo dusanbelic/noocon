@@ -1,0 +1,175 @@
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-sans); }
+.tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 1.5rem; padding: 0.5rem 0; border-bottom: 0.5px solid var(--color-border-tertiary); }
+.tab { padding: 6px 14px; border-radius: var(--border-radius-md); border: 0.5px solid var(--color-border-secondary); font-size: 13px; cursor: pointer; background: transparent; color: var(--color-text-secondary); transition: all 0.15s; }
+.tab.active { background: var(--color-background-secondary); color: var(--color-text-primary); border-color: var(--color-border-primary); font-weight: 500; }
+.section { display: none; }
+.section.active { display: block; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+.card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; }
+.card-title { font-size: 14px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 6px; }
+.card-sub { font-size: 12px; color: var(--color-text-secondary); line-height: 1.6; }
+.badge { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: var(--border-radius-md); margin-bottom: 8px; }
+.badge-blue { background: #E6F1FB; color: #0C447C; }
+.badge-teal { background: #E1F5EE; color: #085041; }
+.badge-amber { background: #FAEEDA; color: #633806; }
+.badge-coral { background: #FAECE7; color: #711B13; }
+.badge-purple { background: #EEEDFE; color: #3C3489; }
+.badge-pink { background: #FBEAF0; color: #72243E; }
+.badge-green { background: #EAF3DE; color: #27500A; }
+.num { font-size: 11px; font-weight: 500; color: var(--color-text-secondary); margin-bottom: 4px; }
+.section-intro { font-size: 13px; color: var(--color-text-secondary); margin-bottom: 1.25rem; line-height: 1.6; padding: 12px 14px; background: var(--color-background-secondary); border-radius: var(--border-radius-md); }
+.ask-btn { margin-top: 10px; padding: 5px 12px; font-size: 12px; border: 0.5px solid var(--color-border-secondary); border-radius: var(--border-radius-md); background: transparent; cursor: pointer; color: var(--color-text-secondary); }
+.ask-btn:hover { background: var(--color-background-secondary); }
+</style>
+
+<div style="padding: 1rem 0;">
+<div class="tabs" id="tabs">
+  <button class="tab active" onclick="show('angles')">Selling angles</button>
+  <button class="tab" onclick="show('personas')">Personas & triggers</button>
+  <button class="tab" onclick="show('industries')">By industry</button>
+  <button class="tab" onclick="show('agents')">Agents to build</button>
+  <button class="tab" onclick="show('objections')">Objection handling</button>
+</div>
+
+<div id="angles" class="section active">
+  <p class="section-intro">30 prospecting angles — lead with the one that maps to their most acute pain.</p>
+  <div class="grid">
+
+    <div class="card"><span class="badge badge-blue">Knowledge fragmentation</span><div class="num">01</div><div class="card-title">The "10 tabs open" problem</div><div class="card-sub">Employees search Slack, Confluence, Drive, email, and SharePoint separately for the same answer. Glean unifies it in one query.</div><button class="ask-btn" onclick="sendPrompt('Give me a cold email template for the 10 tabs problem angle for Glean')">Draft cold email ↗</button></div>
+
+    <div class="card"><span class="badge badge-blue">Knowledge fragmentation</span><div class="num">02</div><div class="card-title">New hire ramp time</div><div class="card-sub">Onboarding takes 3–6 months because knowledge lives in the heads of tenured employees. Glean cuts ramp time dramatically.</div><button class="ask-btn" onclick="sendPrompt('Give me a LinkedIn outreach message targeting HR/People leaders about reducing new hire ramp time using Glean')">Draft LinkedIn DM ↗</button></div>
+
+    <div class="card"><span class="badge badge-blue">Knowledge fragmentation</span><div class="num">03</div><div class="card-title">Tribal knowledge loss on attrition</div><div class="card-sub">When a key person leaves, their knowledge walks out the door. Glean indexes and preserves institutional memory.</div></div>
+
+    <div class="card"><span class="badge badge-teal">Productivity & ROI</span><div class="num">04</div><div class="card-title">Analyst time recaptured</div><div class="card-sub">Knowledge workers spend ~2.5 hrs/day searching for information (IDC). Frame Glean as recovering $X per employee per year.</div><button class="ask-btn" onclick="sendPrompt('Help me build an ROI calculator pitch for Glean targeting a 500-person company, showing time saved per employee')">Build ROI pitch ↗</button></div>
+
+    <div class="card"><span class="badge badge-teal">Productivity & ROI</span><div class="num">05</div><div class="card-title">Duplicate work / wheel reinvention</div><div class="card-sub">Teams build the same report, analysis, or deck multiple times because no one could find the last one. Glean surfaces prior work.</div></div>
+
+    <div class="card"><span class="badge badge-teal">Productivity & ROI</span><div class="num">06</div><div class="card-title">Meeting overload caused by info gaps</div><div class="card-sub">"Let me schedule a call to ask X" is often a search problem. Glean reduces meetings by enabling self-service answers.</div></div>
+
+    <div class="card"><span class="badge badge-amber">AI strategy</span><div class="num">07</div><div class="card-title">AI without company context = hallucination</div><div class="card-sub">ChatGPT doesn't know your company. Glean grounds AI in your actual internal data — it's the missing RAG layer for enterprise AI.</div><button class="ask-btn" onclick="sendPrompt('Write a short compelling pitch for why Glean is the missing piece of an enterprise AI strategy, in 3 sentences')">Draft pitch snippet ↗</button></div>
+
+    <div class="card"><span class="badge badge-amber">AI strategy</span><div class="num">08</div><div class="card-title">The CIO's "AI everywhere" mandate</div><div class="card-sub">Leadership is demanding AI ROI. Glean is one of the few platforms that shows measurable productivity gains within 60–90 days of deployment.</div></div>
+
+    <div class="card"><span class="badge badge-amber">AI strategy</span><div class="num">09</div><div class="card-title">Replace point-solution sprawl</div><div class="card-sub">Companies have Guru + Notion + SharePoint + Confluence all half-used. Glean consolidates search across all of them without migrating data.</div></div>
+
+    <div class="card"><span class="badge badge-amber">AI strategy</span><div class="num">10</div><div class="card-title">Glean as the AI layer before the ERP</div><div class="card-sub">Glean becomes the conversational front door to all enterprise systems — the thing employees ask instead of opening 6 tools.</div></div>
+
+    <div class="card"><span class="badge badge-coral">Security & compliance</span><div class="num">11</div><div class="card-title">Permission-aware AI</div><div class="card-sub">Unlike generic AI tools, Glean respects your existing ACLs — people only see answers from content they're already authorized to access.</div></div>
+
+    <div class="card"><span class="badge badge-coral">Security & compliance</span><div class="num">12</div><div class="card-title">Preventing shadow IT AI adoption</div><div class="card-sub">Employees are already using ChatGPT on company data. Glean is a safer, governed alternative that IT can actually endorse.</div></div>
+
+    <div class="card"><span class="badge badge-coral">Security & compliance</span><div class="num">13</div><div class="card-title">SOC 2 / HIPAA / FedRAMP posture</div><div class="card-sub">Regulated industries need AI tools that meet compliance standards. Glean's enterprise security posture makes it the safe choice for legal, finance, and healthcare.</div></div>
+
+    <div class="card"><span class="badge badge-purple">Agent platform</span><div class="num">14</div><div class="card-title">From search to action</div><div class="card-sub">Glean isn't just search — it lets you build agents that find, reason, and act on information. Position it as an agentic work platform.</div></div>
+
+    <div class="card"><span class="badge badge-purple">Agent platform</span><div class="num">15</div><div class="card-title">100+ native connectors out of the box</div><div class="card-sub">Glean connects to Salesforce, Jira, Confluence, Slack, Gmail, Drive and 100+ more — no custom engineering needed to index your stack.</div></div>
+
+    <div class="card"><span class="badge badge-purple">Agent platform</span><div class="num">16</div><div class="card-title">Build department-specific AI assistants</div><div class="card-sub">Sales gets an assistant that knows every deal. Engineering gets one that knows every PR. Legal gets one that knows every contract. All on Glean.</div></div>
+
+    <div class="card"><span class="badge badge-green">Customer experience</span><div class="num">17</div><div class="card-title">Support agent response quality</div><div class="card-sub">Support reps give inconsistent answers because they can't find the right docs. Glean gives every agent instant access to the right answer.</div></div>
+
+    <div class="card"><span class="badge badge-green">Customer experience</span><div class="num">18</div><div class="card-title">Sales velocity: faster RFP/proposal response</div><div class="card-sub">Deals slow down when sales can't find case studies, security docs, or product specs. Glean makes deal support instant.</div></div>
+
+    <div class="card"><span class="badge badge-green">Customer experience</span><div class="num">19</div><div class="card-title">Customer success at scale</div><div class="card-sub">CSMs serving dozens of accounts can't remember every conversation. Glean surfaces the right customer history and playbooks in seconds.</div></div>
+
+    <div class="card"><span class="badge badge-pink">Developer / engineering</span><div class="num">20</div><div class="card-title">Code intelligence across repos</div><div class="card-sub">Engineers waste hours searching GitHub, Confluence, and Slack simultaneously. Glean unifies code, docs, and discussion in one query.</div></div>
+
+    <div class="card"><span class="badge badge-pink">Developer / engineering</span><div class="num">21</div><div class="card-title">Incident response speed</div><div class="card-sub">When something breaks at 2am, engineers need the runbook, the last similar incident, and the on-call contact — instantly. Glean delivers all three.</div></div>
+
+    <div class="card"><span class="badge badge-pink">Developer / engineering</span><div class="num">22</div><div class="card-title">Accelerate developer onboarding</div><div class="card-sub">New engineers spend weeks just navigating the codebase and understanding architecture. Glean cuts this to days.</div></div>
+
+    <div class="card"><span class="badge badge-blue">Competitive displacement</span><div class="num">23</div><div class="card-title">Replacing Coveo / Elastic / SharePoint Search</div><div class="card-sub">Legacy search tools return blue links. Glean returns synthesized answers. If they have an old search tool, the upgrade pitch practically writes itself.</div></div>
+
+    <div class="card"><span class="badge badge-blue">Competitive displacement</span><div class="num">24</div><div class="card-title">Microsoft Copilot gap-fill</div><div class="card-sub">M365 Copilot only searches Microsoft tools. If the company uses Salesforce, Jira, or Slack, Glean fills the gap Copilot leaves behind.</div></div>
+
+    <div class="card"><span class="badge badge-teal">Prospecting triggers</span><div class="num">25</div><div class="card-title">Post-merger / acquisition chaos</div><div class="card-sub">Two companies, two tool stacks, thousands of confused employees. Glean is the fastest way to create a unified knowledge layer after an M&A.</div></div>
+
+    <div class="card"><span class="badge badge-teal">Prospecting triggers</span><div class="num">26</div><div class="card-title">Rapid headcount scaling</div><div class="card-sub">Companies hiring 50+ people per quarter can't onboard fast enough with human mentoring. Glean is the scalable knowledge infrastructure.</div></div>
+
+    <div class="card"><span class="badge badge-teal">Prospecting triggers</span><div class="num">27</div><div class="card-title">Remote / hybrid team fragmentation</div><div class="card-sub">Async teams lose institutional knowledge in Slack threads and video call recordings. Glean indexes it all and makes it findable.</div></div>
+
+    <div class="card"><span class="badge badge-amber">Executive angles</span><div class="num">28</div><div class="card-title">Board-level AI narrative</div><div class="card-sub">Help the CIO/CDO tell a story about responsible AI adoption with measurable outcomes — Glean is the anchor proof point.</div></div>
+
+    <div class="card"><span class="badge badge-amber">Executive angles</span><div class="num">29</div><div class="card-title">Workforce efficiency without headcount cuts</div><div class="card-sub">AI productivity without layoffs — Glean lets leaders tell a positive story: same team, dramatically more output.</div></div>
+
+    <div class="card"><span class="badge badge-amber">Executive angles</span><div class="num">30</div><div class="card-title">Competitive moat via knowledge leverage</div><div class="card-sub">The company with the best-indexed institutional knowledge will out-execute competitors. Glean is infrastructure for knowledge advantage.</div></div>
+
+  </div>
+</div>
+
+<div id="personas" class="section">
+  <p class="section-intro">Different buyers respond to very different angles. Lead with the right pain for each persona.</p>
+  <div class="grid">
+    <div class="card"><span class="badge badge-blue">CIO / CTO</span><div class="card-title">Pain: AI sprawl, shadow IT, no governance</div><div class="card-sub">Hook: "Your employees are already using ChatGPT on your data. Glean is the governed alternative." Trigger: AI strategy initiative, board pressure for AI ROI.</div></div>
+    <div class="card"><span class="badge badge-amber">VP Engineering</span><div class="card-title">Pain: Dev onboarding, incident response, code search</div><div class="card-sub">Hook: "Your senior engineers spend 20% of their time answering questions junior devs could find themselves." Trigger: Rapid hiring, post-incident retrospective.</div></div>
+    <div class="card"><span class="badge badge-teal">VP / Head of IT</span><div class="card-title">Pain: Tool sprawl, helpdesk volume, support tickets</div><div class="card-sub">Hook: "Glean cuts IT helpdesk tickets by giving employees self-service access to every internal policy and how-to." Trigger: Helpdesk scaling pain, Confluence/SharePoint frustration.</div></div>
+    <div class="card"><span class="badge badge-coral">CPO / Head of Product</span><div class="card-title">Pain: Duplicate research, slow decision-making</div><div class="card-sub">Hook: "Product teams re-do user research that already exists somewhere in Notion or Drive." Trigger: Product/eng sync friction, roadmap planning cycles.</div></div>
+    <div class="card"><span class="badge badge-purple">CHRO / People Ops</span><div class="card-title">Pain: Onboarding cost, attrition knowledge loss</div><div class="card-sub">Hook: "Every senior employee who leaves takes 10 years of undocumented knowledge with them. Glean captures it." Trigger: Rapid growth hiring plan, high attrition rate.</div></div>
+    <div class="card"><span class="badge badge-green">VP Sales / Revenue</span><div class="card-title">Pain: RFP speed, deal support, rep ramp time</div><div class="card-sub">Hook: "Reps waste 3 hours per deal hunting for case studies, security docs, and competitive intel. Glean makes it instant." Trigger: Expanding sales team, deal velocity problem.</div></div>
+    <div class="card"><span class="badge badge-pink">CFO / Finance</span><div class="card-title">Pain: ROI of AI spend, cost control</div><div class="card-sub">Hook: "Companies waste millions on software nobody uses. Glean sits on top of what you already have." Trigger: Budget cycle, tech stack rationalization.</div></div>
+    <div class="card"><span class="badge badge-blue">Head of Legal / Compliance</span><div class="card-title">Pain: Policy lookup, contract discoverability, risk</div><div class="card-sub">Hook: "Employees unknowingly violate policy because they can't find it. Glean makes compliance knowledge instantly accessible." Trigger: Compliance audit, regulatory change.</div></div>
+  </div>
+</div>
+
+<div id="industries" class="section">
+  <p class="section-intro">Tailor your angle and proof points to the industry — each has a dominant pain.</p>
+  <div class="grid">
+    <div class="card"><span class="badge badge-blue">Tech / SaaS</span><div class="card-title">Primary angle: Developer velocity + AI platform</div><div class="card-sub">Dominant pain: Knowledge silos across Confluence, Jira, GitHub, Slack. Glean becomes the single pane of glass for engineering and product. Lead with code intelligence and incident response. Build agent: On-call assistant that surfaces runbooks + last 3 similar incidents automatically.</div></div>
+    <div class="card"><span class="badge badge-amber">Financial services</span><div class="card-title">Primary angle: Compliance + secure AI</div><div class="card-sub">Dominant pain: Employees using unauthorized AI tools on sensitive data. Glean is the safe, permission-aware, auditable alternative. Lead with SOC 2, access controls, and no data leaving the perimeter. Build agent: Regulatory change monitor that summarizes new rules and surfaces affected internal policies.</div></div>
+    <div class="card"><span class="badge badge-coral">Healthcare</span><div class="card-title">Primary angle: Clinical knowledge access + HIPAA compliance</div><div class="card-sub">Dominant pain: Clinical teams can't quickly find the right protocol, form, or policy. Glean surfaces it in seconds. Lead with HIPAA compliance, permission controls, and time-to-answer for non-clinical staff. Build agent: Policy compliance assistant that answers "what's our protocol for X?" in plain language.</div></div>
+    <div class="card"><span class="badge badge-teal">Professional services</span><div class="card-title">Primary angle: Reuse prior work + faster delivery</div><div class="card-sub">Dominant pain: Consultants rebuild deliverables from scratch because past engagements are unsearchable. Glean surfaces prior proposals, frameworks, and outputs. Lead with reuse rate and time-to-proposal. Build agent: Proposal accelerator agent that finds relevant past deliverables and adapts them to the current engagement.</div></div>
+    <div class="card"><span class="badge badge-purple">Mid-market (general)</span><div class="card-title">Primary angle: Onboarding + retention of knowledge</div><div class="card-sub">Mid-market companies grow fast but lack knowledge infrastructure. They're losing competitive edge as headcount scales. Lead with time-to-productivity for new hires and knowledge retention during attrition. Position as "Google for your company." Build agent: New hire buddy agent that answers any onboarding question 24/7.</div></div>
+    <div class="card"><span class="badge badge-green">Enterprise (1000+)</span><div class="card-title">Primary angle: AI governance + agentic platform</div><div class="card-sub">Large enterprises need AI that respects complex permission structures across business units. Lead with enterprise security, ACL-awareness, and the agent platform story. Expand from a department pilot to company-wide. Build agent: Executive briefing agent that summarizes cross-departmental activity for leadership.</div></div>
+  </div>
+</div>
+
+<div id="agents" class="section">
+  <p class="section-intro">These agents can be built on Glean's API/SDK. Each one is a differentiated value-add you can offer as a partner — turning a software sale into a solutions sale.</p>
+  <div class="grid">
+    <div class="card"><span class="badge badge-purple">Sales</span><div class="card-title">RFP / deal support agent</div><div class="card-sub">Automatically surfaces relevant case studies, security questionnaire answers, and competitive battle cards for any open opportunity. Connects to Salesforce + Glean.</div></div>
+    <div class="card"><span class="badge badge-purple">Sales</span><div class="card-title">Rep onboarding agent</div><div class="card-sub">New AEs can ask "who is our biggest competitor in fintech?" or "find me the Q3 enterprise deck" and get instant, grounded answers on day one.</div></div>
+    <div class="card"><span class="badge badge-teal">Engineering</span><div class="card-title">On-call incident assistant</div><div class="card-sub">When an alert fires, this agent instantly surfaces the relevant runbook, the last 3 similar incidents, and the owning team's Slack channel.</div></div>
+    <div class="card"><span class="badge badge-teal">Engineering</span><div class="card-title">PR / code review context agent</div><div class="card-sub">For any PR, surfaces related past decisions from Confluence, relevant Slack discussions, and similar merged PRs to give reviewers full context.</div></div>
+    <div class="card"><span class="badge badge-teal">Engineering</span><div class="card-title">Architecture decision record (ADR) agent</div><div class="card-sub">"Why did we choose Kafka over RabbitMQ?" — the agent finds the original ADR, meeting notes, and the people who made the call.</div></div>
+    <div class="card"><span class="badge badge-blue">HR / People Ops</span><div class="card-title">New hire buddy agent</div><div class="card-sub">A 24/7 onboarding assistant that answers any policy or process question, surfaces the right team contact, and never makes a new employee feel lost.</div></div>
+    <div class="card"><span class="badge badge-blue">HR / People Ops</span><div class="card-title">Benefits & policy Q&A agent</div><div class="card-sub">Replaces the 50 weekly emails to HR: "How many PTO days do I have?" "Is X covered by insurance?" Instant, accurate, permission-aware answers.</div></div>
+    <div class="card"><span class="badge badge-amber">Finance</span><div class="card-title">Budget & spend research agent</div><div class="card-sub">Finance teams can ask "what did we spend on cloud in Q2 by department?" and get answers synthesized from Jira, Netsuite data, and Slack discussions.</div></div>
+    <div class="card"><span class="badge badge-amber">Finance</span><div class="card-title">Regulatory change monitor</div><div class="card-sub">Agent watches for regulatory updates (via web or internal compliance feeds) and automatically surfaces which internal policies need to be updated.</div></div>
+    <div class="card"><span class="badge badge-coral">Legal</span><div class="card-title">Contract clause finder</div><div class="card-sub">"Do any of our vendor contracts have auto-renewal clauses expiring in Q2?" — searches the entire contract repository and returns a synthesized answer.</div></div>
+    <div class="card"><span class="badge badge-coral">Legal</span><div class="card-title">Policy compliance assistant</div><div class="card-sub">Any employee can ask "can I accept this gift from a vendor?" and get the exact policy plus a plain-language interpretation grounded in internal docs.</div></div>
+    <div class="card"><span class="badge badge-green">Customer success</span><div class="card-title">Account health briefing agent</div><div class="card-sub">Before any customer call, the agent generates a briefing: last 3 support tickets, open feature requests, recent product usage signals, and last QBR notes.</div></div>
+    <div class="card"><span class="badge badge-green">Customer success</span><div class="card-title">Escalation handler agent</div><div class="card-sub">When a customer escalates, the agent instantly finds: every prior conversation, the assigned engineer, similar past resolutions, and the right internal escalation path.</div></div>
+    <div class="card"><span class="badge badge-green">Support</span><div class="card-title">Tier-1 support deflection agent</div><div class="card-sub">Customer-facing or internal agent that handles Tier-1 questions by searching internal knowledge bases before escalating to a human — cuts ticket volume significantly.</div></div>
+    <div class="card"><span class="badge badge-pink">Product</span><div class="card-title">Feature research consolidator</div><div class="card-sub">"What do customers say about our export feature?" — aggregates feedback from Zendesk, Slack, Jira, Gong, and Notion into a synthesized summary.</div></div>
+    <div class="card"><span class="badge badge-pink">Product</span><div class="card-title">Competitive intel agent</div><div class="card-sub">Aggregates internal battle cards, Gong calls mentioning competitors, and recent win/loss data into a real-time competitive briefing for any named competitor.</div></div>
+    <div class="card"><span class="badge badge-blue">Leadership</span><div class="card-title">Executive briefing agent</div><div class="card-sub">Every Monday, sends the leadership team a synthesized summary of: open escalations, key project status across departments, and relevant metrics — from Glean.</div></div>
+    <div class="card"><span class="badge badge-blue">Leadership</span><div class="card-title">M&A integration agent</div><div class="card-sub">After an acquisition, this agent helps employees find information across both companies' tool stacks — the fastest way to unify two knowledge bases.</div></div>
+  </div>
+</div>
+
+<div id="objections" class="section">
+  <p class="section-intro">The 6 objections you'll hear most, and how to handle them.</p>
+  <div class="grid">
+    <div class="card"><span class="badge badge-coral">Cost</span><div class="card-title">"It's too expensive."</div><div class="card-sub">Reframe: "If each employee saves 30 minutes a day on search, what's that worth at your average fully-loaded salary? For a 300-person company that's typically $2–4M/year recovered. Glean costs a fraction of that." Then offer a department pilot to prove ROI before full commitment.</div></div>
+    <div class="card"><span class="badge badge-coral">Competition</span><div class="card-title">"We're already using M365 Copilot."</div><div class="card-sub">Reframe: "Copilot is powerful — but it only sees Microsoft data. If you're also on Salesforce, Jira, Slack, or Zendesk, Glean fills the gaps Copilot can't touch. They're complementary, not competitors."</div></div>
+    <div class="card"><span class="badge badge-coral">Timing</span><div class="card-title">"We're not ready for this yet."</div><div class="card-sub">Reframe: "Your competitors are already deploying this. The longer knowledge fragmentation continues, the more ramp time you lose on every new hire." Offer a no-pressure pilot scoped to one team, 30 days.</div></div>
+    <div class="card"><span class="badge badge-coral">IT resistance</span><div class="card-title">"IT won't approve another tool."</div><div class="card-sub">Reframe: "Glean doesn't copy or store your data in a new silo — it indexes it in place, respects your existing permissions, and is SOC 2 compliant. It's built to pass enterprise security review." Offer to do a security review session directly with their IT team.</div></div>
+    <div class="card"><span class="badge badge-coral">Adoption</span><div class="card-title">"People won't use it."</div><div class="card-sub">Reframe: "Glean puts itself inside Slack, Chrome, and the tools people already use — it doesn't require a behavior change. Usage typically starts day one." Reference the '3 weeks to go live' case study from Glean's own customers.</div></div>
+    <div class="card"><span class="badge badge-coral">DIY</span><div class="card-title">"We can build this ourselves."</div><div class="card-sub">Reframe: "100+ native connectors, permission-aware indexing, and enterprise security are 18 months of engineering if you build it. Your team could be live in 3 weeks with Glean." Ask: what's the opportunity cost of those engineering months?</div></div>
+  </div>
+</div>
+
+</div>
+
+<script>
+function show(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
